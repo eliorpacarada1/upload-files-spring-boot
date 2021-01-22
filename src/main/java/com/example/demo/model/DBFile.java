@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
+@Table(name ="files")
 public class DBFile {
     @Id
     @GeneratedValue(generator = "uuid")
