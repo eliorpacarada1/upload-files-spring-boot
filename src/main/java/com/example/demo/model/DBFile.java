@@ -3,6 +3,7 @@ package com.example.demo.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.stream.Stream;
 
 @Entity
 @Table(name ="files")
@@ -63,6 +64,5 @@ public class DBFile {
     public void setData(byte[] data) {
         this.data = data;
     }
-
 
 }

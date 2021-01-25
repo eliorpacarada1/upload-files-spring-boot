@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-
+@CrossOrigin("*")
 public class FileController {
 
     @Autowired
@@ -38,6 +38,7 @@ public class FileController {
         return new UploadFileResponse(dbFile.getFileName(), fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
+
     @PostMapping("/uploadMultipleFiles")
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
         return Arrays.asList(files)
