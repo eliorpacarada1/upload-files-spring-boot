@@ -31,7 +31,7 @@ public class FileController {
         DBFile dbFile = storageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/uploadFile/")
+                .path("/downloadFile/")
                 .path(dbFile.getId())
                 .toUriString();
 
@@ -45,6 +45,7 @@ public class FileController {
                 .stream()
                 .map(file -> uploadFile(file))
                 .collect(Collectors.toList());
+
     }
 
 
@@ -53,7 +54,7 @@ public class FileController {
         List<UploadFileResponse> files = storageService.getAllFiles().map(dbFile -> {
             String fileDownloadUri = ServletUriComponentsBuilder
                     .fromCurrentContextPath()
-                    .path("/files/")        //append to this path builder
+                    .path("/files/")
                     .path(dbFile.getId())
                     .toUriString();
 
